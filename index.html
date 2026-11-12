@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>CompTIA Security+ Prep Hub (SY0-701 / SY0-801)</title>
+
+  <!-- Mobile Home Screen Shortcut & PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Sec+ Prep" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#060a13" />
+
+  <!-- Custom Shield Icon for Mobile Shortcut -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23060a13'/%3E%3Cpath d='M50 16 L80 28 V50 C80 68 67 82 50 88 C33 82 20 68 20 50 V28 Z' fill='%2310b981' fill-opacity='0.2' stroke='%2310b981' stroke-width='5'/%3E%3Cpath d='M38 50 L46 58 L63 41' fill='none' stroke='%2334d399' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23060a13'/%3E%3Cpath d='M50 16 L80 28 V50 C80 68 67 82 50 88 C33 82 20 68 20 50 V28 Z' fill='%2310b981' fill-opacity='0.25' stroke='%2310b981' stroke-width='5'/%3E%3Cpath d='M38 50 L46 58 L63 41' fill='none' stroke='%2334d399' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              950: '#060a13',
+              900: '#0c1322',
+              850: '#11192c',
+              800: '#17223b',
+              700: '#233356',
+              accent: '#10b981',
+              cyan: '#06b6d4'
+            }
+          },
+          boxShadow: {
+            'glow-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.25)',
+            'glow-cyan': '0 0 25px -5px rgba(6, 182, 212, 0.25)',
+            'glow-amber': '0 0 25px -5px rgba(245, 158, 11, 0.2)',
+            'glow-purple': '0 0 25px -5px rgba(168, 85, 247, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Ambient Cyber Mesh Background */
+    body {
+      background-color: #060a13;
+      background-image:
+        radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 42%),
+        radial-gradient(circle at 85% 10%, rgba(6, 182, 212, 0.08) 0%, transparent 42%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    }
+
+    /* Glass Card Surface */
+    .glass-panel {
+      background: linear-gradient(145deg, rgba(17, 25, 44, 0.85), rgba(12, 19, 34, 0.92));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* 3D Flashcard Flip */
+    .perspective-1000 { perspective: 1200px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+
+    /* Smooth Fade Entrance */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-view {
+      animation: fadeSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #060a13; }
+    ::-webkit-scrollbar-thumb { background: #233356; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334a7c; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <!-- Top Header & Telemetry Bar -->
+  <header class="sticky top-0 z-30 bg-cyber-950/80 backdrop-blur-xl border-b border-white/[0.07]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-3">
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-3.5">
+        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-400/30 flex items-center justify-center shadow-glow-emerald">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+          </svg>
+          <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-cyber-950"></span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+              Sec+ Command Center
+            </h1>
+            <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+              PRO PREP
+            </span>
+          </div>
+          <p class="text-[11px] sm:text-xs text-slate-400 font-medium">Adaptive CompTIA Security+ Mastery Engine</p>
+        </div>
+      </div>
+
+      <!-- Exam Version Toggle & Overall Readiness Pill -->
+      <div class="flex items-center gap-2.5 sm:gap-4">
+        <div class="flex items-center bg-cyber-900/90 p-1 rounded-xl border border-white/[0.08] shadow-inner">
+          <button id="btn-701" onclick="setExamVersion('701')" class="px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all duration-200 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-sm">
+            SY0-701
+          </button>
+          <button id="btn-801" onclick="setExamVersion('801')" class="px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all duration-200 text-slate-400 hover:text-white">
+            SY0-801
+          </button>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3 pl-3 border-l border-white/[0.08]">
+          <div class="text-right">
+            <div class="text-[10px] uppercase tracking-wider text-slate-400 font-mono">Syllabus</div>
+            <div class="flex items-center gap-2 mt-0.5">
+              <div class="w-20 h-1.5 bg-cyber-800 rounded-full overflow-hidden">
+                <div id="global-progress-bar" class="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-500" style="width: 0%"></div>
+              </div>
+              <span id="global-progress-text" class="text-xs font-mono font-bold text-emerald-400">0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pill Sub-Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-3 pt-1">
+      <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar bg-cyber-900/60 p-1.5 rounded-2xl border border-white/[0.06]">
+        <button onclick="switchTab('daily')" id="tab-daily" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap flex items-center gap-2 bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shadow-sm">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span>Daily Trainer</span>
+        </button>
+        <button onclick="switchTab('roadmap')" id="tab-roadmap" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] border border-transparent">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <span>Domains</span>
+        </button>
+        <button onclick="switchTab('flashcards')" id="tab-flashcards" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] border border-transparent">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span>Flashcards</span>
+        </button>
+        <button onclick="switchTab('ports')" id="tab-ports" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] border border-transparent">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+          <span>Ports & Protocols</span>
+        </button>
+        <button onclick="switchTab('pbq')" id="tab-pbq" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] border border-transparent">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>PBQ Labs</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- TAB 0: ADAPTIVE DAILY TRAINER & DAILY IMPROVEMENT ENGINE -->
+    <section id="view-daily" class="space-y-6 animate-view">
+      <!-- Top Streak & Weakness Telemetry -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Daily Schedule & Streak Card -->
+        <div class="glass-panel border border-white/[0.08] rounded-2xl p-5 flex flex-col justify-between gap-3 shadow-lg relative overflow-hidden">
+          <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-emerald-500/10 blur-xl pointer-events-none"></div>
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400/90 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Daily Schedule
+              </span>
+              <div class="text-base sm:text-lg font-bold text-white mt-1" id="daily-status-text">0 / 3 Done Today</div>
+            </div>
+            <div class="text-right bg-cyber-950/70 px-3 py-1.5 rounded-xl border border-white/[0.06]">
+              <span class="text-[10px] font-mono uppercase text-slate-400 block">Streak</span>
+              <span id="daily-streak" class="text-base sm:text-lg font-mono font-extrabold text-emerald-400">0 Days</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/[0.06] text-xs">
+            <label for="daily-goal-select" class="font-mono text-slate-400">Daily Goal:</label>
+            <select id="daily-goal-select" onchange="updateDailyGoal(this.value)" class="bg-cyber-950 border border-white/[0.12] rounded-lg px-2 py-1 text-emerald-300 font-mono font-semibold outline-none focus:border-emerald-500">
+              <option value="1">1 Q / day</option>
+              <option value="3" selected>3 Qs / day</option>
+              <option value="5">5 Qs / day</option>
+              <option value="10">10 Qs / day</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Weakness Focus Banner -->
+        <div class="glass-panel border border-amber-500/20 rounded-2xl p-5 md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg relative overflow-hidden">
+          <div class="absolute -left-6 -bottom-6 w-28 h-28 rounded-full bg-amber-500/10 blur-xl pointer-events-none"></div>
+          <div class="relative z-10">
+            <span class="text-[11px] font-mono uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              Adaptive AI Weakness Engine
+            </span>
+            <div class="text-base sm:text-lg font-bold text-white mt-1" id="weakness-topic-title">Calibrating (Answer questions to profile)</div>
+            <p class="text-xs text-slate-400 mt-0.5 leading-relaxed" id="weakness-topic-sub">AI synthesizes fresh scenario questions & theory targeting your lowest-scoring domain.</p>
+          </div>
+          <div class="relative z-10 flex flex-col sm:items-end gap-2 shrink-0">
+            <select id="focus-topic-select" class="w-full sm:w-auto bg-cyber-950/90 border border-white/[0.12] rounded-xl px-3 py-1.5 text-xs font-mono text-slate-200 outline-none focus:border-amber-500">
+              <option value="AUTO">Mode: Auto-Target Weakness</option>
+              <option value="PKI & Certificates">Focus: PKI & Certificates</option>
+              <option value="IAM & Authentication">Focus: IAM & Authentication</option>
+              <option value="Attacks & AI Security">Focus: Attacks & AI Security</option>
+              <option value="SecOps & Incident Response">Focus: SecOps & IR</option>
+              <option value="GRC & Risk Management">Focus: GRC & Risk</option>
+            </select>
+            <button onclick="loadAdaptiveQuestion(true)" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 text-amber-300 border border-amber-500/35 text-xs font-bold transition shadow-glow-amber active:scale-[0.98]">
+              Generate Targeted Drill
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Task: AI Usability & Learning Improvement Advisor -->
+      <div class="glass-panel border border-purple-500/25 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-purple-500/10 blur-2xl pointer-events-none"></div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.07] pb-4 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-400/30 flex items-center justify-center text-purple-300 shrink-0 shadow-glow-purple">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-purple-300 font-bold">Daily Task &bull; Continuous Optimization</span>
+                <span id="daily-task-date-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/25">Today's Suggestions</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">Usability & Learning Improvement Suggestions</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="generateDailyImprovements(true)" id="refresh-improvements-btn" class="px-3.5 py-2 rounded-xl bg-purple-500/15 hover:bg-purple-500/25 text-purple-200 border border-purple-500/35 text-xs font-mono font-semibold transition flex items-center gap-1.5 active:scale-[0.98]">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <span>Suggest New Ideas</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="daily-improvements-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+
+      <!-- Main Question + Targeted Theory Split -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Question Card -->
+        <div class="lg:col-span-2 glass-panel border border-white/[0.09] rounded-2xl p-5 sm:p-7 shadow-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] pb-4 mb-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="q-mode-badge" class="text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Question of the Day</span>
+                <span id="q-domain-tag" class="text-xs font-mono px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">Domain 4</span>
+                <span id="q-source-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.05] text-slate-400 border border-white/[0.08]">AI Engine</span>
+              </div>
+              <span id="q-score" class="text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-cyber-950/80 text-slate-300 border border-white/[0.06]">Accuracy: 0% (0/0)</span>
+            </div>
+
+            <!-- Loading Skeleton -->
+            <div id="q-loading" class="hidden py-10 space-y-4">
+              <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs">
+                <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                </svg>
+                <span id="q-loading-text">Synthesizing fresh SY0-701 scenario for your weak area...</span>
+              </div>
+              <div class="h-4 bg-white/[0.06] rounded-lg w-full animate-pulse"></div>
+              <div class="h-4 bg-white/[0.06] rounded-lg w-5/6 animate-pulse"></div>
+              <div class="space-y-2.5 pt-4">
+                <div class="h-12 bg-white/[0.04] rounded-xl w-full animate-pulse"></div>
+                <div class="h-12 bg-white/[0.04] rounded-xl w-full animate-pulse"></div>
+                <div class="h-12 bg-white/[0.04] rounded-xl w-full animate-pulse"></div>
+                <div class="h-12 bg-white/[0.04] rounded-xl w-full animate-pulse"></div>
+              </div>
+            </div>
+
+            <div id="q-content-area">
+              <p id="q-text" class="text-base sm:text-[17px] font-medium text-white leading-relaxed mb-6">
+                Loading today's scenario...
+              </p>
+
+              <div id="q-options" class="space-y-3">
+                <!-- Options populated via JS -->
+              </div>
+
+              <div id="q-explanation-box" class="hidden mt-6 p-4 sm:p-5 rounded-2xl bg-cyber-950/90 border border-white/[0.09] shadow-inner">
+                <div id="q-result-header" class="font-bold text-sm mb-1.5"></div>
+                <p id="q-explanation-text" class="text-sm text-slate-300 leading-relaxed"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/[0.07] flex flex-wrap items-center justify-between gap-3">
+            <span class="text-xs font-mono text-slate-400" id="q-topic-label">Topic: General</span>
+            <button id="q-next-btn" onclick="loadAdaptiveQuestion(false)" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition shadow-glow-emerald active:scale-[0.98]">
+              Generate Next Question &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Adaptive Theory Coach Panel -->
+        <div class="glass-panel border border-white/[0.09] rounded-2xl p-5 sm:p-6 flex flex-col justify-between space-y-6 shadow-xl">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/[0.07] pb-3.5 mb-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                Targeted Theory Push
+              </h3>
+              <button onclick="generateCustomTheory()" id="refresh-theory-btn" class="text-[10px] px-2.5 py-1 rounded-md bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 font-mono transition">
+                AI Deep-Dive
+              </button>
+            </div>
+            <h4 id="theory-title" class="text-base font-bold text-white mb-2.5">Core Exam Strategy</h4>
+            <div id="theory-body" class="text-sm text-slate-300 space-y-3 leading-relaxed">
+              <p>Answer today's question. Any topic you miss or score lowest in will automatically trigger targeted AI theory & fresh scenario drills.</p>
+            </div>
+          </div>
+
+          <!-- Topic Mastery Breakdown -->
+          <div class="pt-4 border-t border-white/[0.07]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400">Topic Telemetry</span>
+              <span class="text-[10px] font-mono text-slate-500">Target &ge; 80%</span>
+            </div>
+            <div id="topic-stats-list" class="space-y-3 text-xs">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 1: DOMAIN ROADMAP & CHECKLIST -->
+    <section id="view-roadmap" class="hidden space-y-6 animate-view">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-5 rounded-2xl border border-white/[0.08]">
+        <div>
+          <h2 id="roadmap-title" class="text-lg font-bold text-white">CompTIA Security+ (SY0-701) Exam Objectives</h2>
+          <p id="roadmap-subtitle" class="text-sm text-slate-400 mt-0.5">Check off objectives as you master them. Saved automatically on your device.</p>
+        </div>
+        <button onclick="openResetModal()" class="self-start sm:self-auto text-xs px-3.5 py-2 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/25 font-medium transition">
+          Reset Progress
+        </button>
+      </div>
+
+      <div id="domains-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- TAB 2: FLASHCARDS -->
+    <section id="view-flashcards" class="hidden space-y-6 animate-view">
+      <div class="flex flex-wrap items-center justify-between gap-4 glass-panel p-4 sm:p-5 rounded-2xl border border-white/[0.08]">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-xs font-mono text-slate-400 mr-1">Filter:</span>
+          <button onclick="filterCards('all')" class="card-filter px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500 text-slate-950 transition" data-cat="all">All Decks</button>
+          <button onclick="filterCards('acronyms')" class="card-filter px-3 py-1.5 rounded-xl text-xs font-medium bg-cyber-850 text-slate-300 hover:text-white border border-white/[0.06] transition" data-cat="acronyms">Acronyms</button>
+          <button onclick="filterCards('crypto')" class="card-filter px-3 py-1.5 rounded-xl text-xs font-medium bg-cyber-850 text-slate-300 hover:text-white border border-white/[0.06] transition" data-cat="crypto">Crypto & PKI</button>
+          <button onclick="filterCards('vs')" class="card-filter px-3 py-1.5 rounded-xl text-xs font-medium bg-cyber-850 text-slate-300 hover:text-white border border-white/[0.06] transition" data-cat="vs">Confused Pairs</button>
+        </div>
+        <div class="text-xs font-mono px-3 py-1.5 rounded-lg bg-cyber-950/70 text-slate-300 border border-white/[0.06]">
+          Card <span id="card-index" class="text-emerald-400 font-bold">1</span> / <span id="card-total">0</span>
+        </div>
+      </div>
+
+      <!-- Flashcard Stage -->
+      <div class="max-w-2xl mx-auto">
+        <div onclick="flipCard()" class="perspective-1000 cursor-pointer h-80 sm:h-88 w-full select-none group">
+          <div id="flashcard-inner" class="relative w-full h-full transition-transform duration-500 transform-style-3d">
+            <!-- Front -->
+            <div class="absolute inset-0 backface-hidden glass-panel border border-white/[0.12] group-hover:border-emerald-500/40 rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-2xl transition-colors">
+              <span id="card-category-badge" class="text-[11px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mb-6">Category</span>
+              <h3 id="card-front-text" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Loading...</h3>
+              <p class="text-xs text-slate-400 mt-8 flex items-center gap-1.5 font-mono">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Tap card to flip
+              </p>
+            </div>
+            <!-- Back -->
+            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-cyber-850 to-cyber-950 border border-emerald-500/40 rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-glow-emerald">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400 mb-3">Exam Definition & Trap</span>
+              <p id="card-back-text" class="text-base sm:text-lg text-slate-100 leading-relaxed font-medium">Definition</p>
+              <div id="card-tip-box" class="mt-5 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 font-mono"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Controls -->
+        <div class="flex items-center justify-between mt-6 gap-3">
+          <button onclick="prevCard()" class="flex-1 py-3 px-4 rounded-xl glass-panel hover:bg-cyber-800 border border-white/[0.08] text-sm font-semibold transition active:scale-[0.98]">
+            &larr; Previous
+          </button>
+          <button onclick="shuffleCards()" class="py-3 px-5 rounded-xl glass-panel hover:bg-cyber-800 border border-white/[0.08] text-sm font-mono text-emerald-400 transition active:scale-[0.98]">
+            Shuffle
+          </button>
+          <button onclick="nextCard()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-sm font-bold transition shadow-glow-emerald active:scale-[0.98]">
+            Next &rarr;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: PORTS & PROTOCOLS -->
+    <section id="view-ports" class="hidden space-y-6 animate-view">
+      <div class="glass-panel border border-white/[0.08] rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="relative flex-1">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="port-search" oninput="renderPorts()" placeholder="Search port (e.g., 443, 3389) or protocol (RADIUS, Kerberos)..." class="w-full bg-cyber-950/90 border border-white/[0.08] rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition" />
+        </div>
+        <button id="toggle-blind-btn" onclick="togglePortBlindMode()" class="px-4 py-2.5 rounded-xl bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-mono font-bold hover:bg-amber-500/25 transition whitespace-nowrap">
+          Drill Mode: Hide Ports
+        </button>
+      </div>
+
+      <div class="glass-panel border border-white/[0.08] rounded-2xl overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-cyber-950/80 border-b border-white/[0.08] text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                <th class="py-3.5 px-4">Port(s)</th>
+                <th class="py-3.5 px-4">Protocol</th>
+                <th class="py-3.5 px-4">Transport</th>
+                <th class="py-3.5 px-4">Security Use & Exam Notes</th>
+              </tr>
+            </thead>
+            <tbody id="ports-table-body" class="divide-y divide-white/[0.05] text-sm">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: PBQ LAB SIMULATOR -->
+    <section id="view-pbq" class="hidden space-y-6 animate-view">
+      <!-- PBQ 1: Firewall ACL Builder -->
+      <div class="glass-panel border border-white/[0.08] rounded-2xl p-5 sm:p-7 space-y-5 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] pb-4">
+          <div>
+            <span class="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">PBQ Simulation #1</span>
+            <h3 class="text-lg font-bold text-white mt-2">Firewall ACL Rule Configuration</h3>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-cyber-950/80 px-3 py-1 rounded-lg border border-white/[0.06]">Domain 3 & 4</span>
+        </div>
+
+        <div class="bg-cyber-950/90 border border-white/[0.07] rounded-xl p-4 text-xs font-mono text-slate-300 space-y-1.5">
+          <div class="text-emerald-400 font-bold mb-1">[SIEM Incident Ticket #4092]</div>
+          <p>&bull; Block external brute-force SSH attempts targeting internal DB Server (<span class="text-cyan-300">10.10.20.50</span>) from rogue IP <span class="text-red-400">198.51.100.42</span>.</p>
+          <p>&bull; Allow internal Admin Workstation (<span class="text-cyan-300">10.10.5.12</span>) to manage DB Server via encrypted remote shell.</p>
+          <p>&bull; Allow public HTTPS traffic (<span class="text-cyan-300">Any</span>) to reach DMZ Web Server (<span class="text-cyan-300">172.16.1.10</span>).</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-white/[0.07]">
+          <table class="w-full text-left border-collapse text-xs font-mono">
+            <thead>
+              <tr class="bg-cyber-950 text-slate-400 border-b border-white/[0.08]">
+                <th class="p-3">Rule</th>
+                <th class="p-3">Action</th>
+                <th class="p-3">Source IP</th>
+                <th class="p-3">Dest IP</th>
+                <th class="p-3">Port / Proto</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/[0.06] bg-cyber-900/40">
+              <tr>
+                <td class="p-3 text-slate-400 font-bold">#1</td>
+                <td class="p-3">
+                  <select id="acl-1-act" class="bg-cyber-950 border border-white/[0.12] rounded-lg p-1.5 text-white focus:border-emerald-500 outline-none">
+                    <option value="">-- Select --</option>
+                    <option value="ALLOW">ALLOW</option>
+                    <option value="DENY">DENY</option>
+                  </select>
+                </td>
+                <td class="p-3">
+                  <select id="acl-1-src" class="bg-cyber-950 border border-white/[0.12] rounded-lg p-1.5 text-white focus:border-emerald-500 outline-none">
+                    <option value="">-- Select --</option>
+                    <option value="198.51.100.42">198.51.100.42</option>
+                    <option value="10.10.5.12">10.10.5.12</option>
+                    <option value="Any">Any</option>
+                  </select>
+                </td>
+                <td class="p-3 text-cyan-300">10.10.20.50</td>
+                <td class="p-3">
+                  <select id="acl-1-port" class="bg-cyber-950 border border-white/[0.12] rounded-lg p-1.5 text-white focus:border-emerald-500 outline-none">
+                    <option value="">-- Select --</option>
+                    <option value="22">TCP/22 (SSH)</option>
+                    <option value="23">TCP/23 (Telnet)</option>
+                    <option value="443">TCP/443 (HTTPS)</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 text-slate-400 font-bold">#2</td>
+                <td class="p-3">
+                  <select id="acl-2-act" class="bg-cyber-950 border border-white/[0.12] rounded-lg p-1.5 text-white focus:border-emerald-500 outline-none">
+                    <option value="">-- Select --</option>
+                    <option value="ALLOW">ALLOW</option>
+                    <option value="DENY">DENY</option>
+                  </select>
+                </td>
+                <td class="p-3 text-cyan-300">10.10.5.12</td>
+                <td class="p-3 text-cyan-300">10.10.20.50</td>
+                <td class="p-3">
+                  <select id="acl-2-port" class="bg-cyber-950 border border-white/[0.12] rounded-lg p-1.5 text-white focus:border-emerald-500 outline-none">
+                    <option value="">-- Select --</option>
+                    <option value="22">TCP/22 (SSH)</option>
+                    <option value="3389">TCP/3389 (RDP)</option>
+                    <option value="80">TCP/80 (HTTP)</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-3 text-slate-400 font-bold">#3</td>
+                <td class="p-3 text-emerald-400 font-bold">ALLOW</td>
+                <td class="p-3 text-slate-300">Any</td>
+                <td class="p-3 text-cyan-300">172.16.1.10</td>
+                <td class="p-3">
+                  <select id="acl-3-port" class="bg-cyber-950 border border-white/[0.12] rounded-lg p-1.5 text-white focus:border-emerald-500 outline-none">
+                    <option value="">-- Select --</option>
+                    <option value="80">TCP/80 (HTTP)</option>
+                    <option value="443">TCP/443 (HTTPS)</option>
+                    <option value="25">TCP/25 (SMTP)</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <button onclick="gradePBQ1()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition shadow-glow-emerald active:scale-[0.98]">
+            Validate Firewall Rules
+          </button>
+          <div id="pbq1-feedback" class="text-sm font-medium"></div>
+        </div>
+      </div>
+
+      <!-- PBQ 2: Attack & Mitigation Matching -->
+      <div class="glass-panel border border-white/[0.08] rounded-2xl p-5 sm:p-7 space-y-5 shadow-xl">
+        <div class="border-b border-white/[0.07] pb-4">
+          <span class="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg bg-purple-500/15 text-purple-300 border border-purple-500/30">PBQ Simulation #2</span>
+          <h3 class="text-lg font-bold text-white mt-2">Attack Indicator &rarr; Primary Mitigation</h3>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-cyber-950/90 p-3.5 rounded-xl border border-white/[0.07]">
+            <div class="text-slate-200 font-medium">1. Log shows <code class="text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded">' OR 1=1 --</code> in login POST payload</div>
+            <select id="pbq2-1" class="bg-cyber-900 border border-white/[0.12] rounded-xl p-2.5 text-white text-xs focus:border-emerald-500 outline-none">
+              <option value="">-- Choose Best Defense --</option>
+              <option value="param">Parameterized Queries / Prepared Statements</option>
+              <option value="dai">Dynamic ARP Inspection (DAI)</option>
+              <option value="mfa">FIDO2 Hardware MFA</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-cyber-950/90 p-3.5 rounded-xl border border-white/[0.07]">
+            <div class="text-slate-200 font-medium">2. Duplicate MAC addresses poisoning local VLAN switch cache</div>
+            <select id="pbq2-2" class="bg-cyber-900 border border-white/[0.12] rounded-xl p-2.5 text-white text-xs focus:border-emerald-500 outline-none">
+              <option value="">-- Choose Best Defense --</option>
+              <option value="param">Parameterized Queries / Prepared Statements</option>
+              <option value="dai">Dynamic ARP Inspection (DAI)</option>
+              <option value="dnssec">DNSSEC Signing</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-cyber-950/90 p-3.5 rounded-xl border border-white/[0.07]">
+            <div class="text-slate-200 font-medium">3. LLM chatbot tricked into leaking system prompt via crafted resume</div>
+            <select id="pbq2-3" class="bg-cyber-900 border border-white/[0.12] rounded-xl p-2.5 text-white text-xs focus:border-emerald-500 outline-none">
+              <option value="">-- Choose Best Defense --</option>
+              <option value="prompt">Input Sanitization & Prompt Guardrails</option>
+              <option value="dai">Dynamic ARP Inspection (DAI)</option>
+              <option value="waf">Switch Port Security</option>
+            </select>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button onclick="gradePBQ2()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition shadow-glow-emerald active:scale-[0.98]">
+              Check Matches
+            </button>
+            <div id="pbq2-feedback" class="text-sm font-medium"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Custom Reset Confirmation Modal (Mobile/WebView safe) -->
+  <div id="reset-modal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-panel border border-white/[0.12] rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl animate-view">
+      <h3 class="text-lg font-bold text-white">Reset Study Progress?</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">This will clear all checked syllabus objectives on this device. This action cannot be undone.</p>
+      <div class="flex items-center justify-end gap-3 pt-2">
+        <button onclick="closeResetModal()" class="px-4 py-2 rounded-xl bg-cyber-850 hover:bg-cyber-800 border border-white/[0.08] text-slate-200 text-sm font-medium transition">
+          Cancel
+        </button>
+        <button onclick="confirmResetProgress()" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-sm font-bold transition shadow-lg">
+          Yes, Reset
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- STATE & DATA ---
+    let currentExam = localStorage.getItem('secplus_exam') || '701';
+    let checkedItems = JSON.parse(localStorage.getItem('secplus_checked') || '{}');
+
+    const syllabusData = {
+      '701': [
+        {
+          id: 'd1',
+          title: '1.0 General Security Concepts',
+          weight: '12%',
+          topics: [
+            'Compare & contrast security controls (Technical, Managerial, Operational, Physical)',
+            'Summarize fundamental security concepts (CIA Triad, AAA, Non-repudiation, Zero Trust)',
+            'Explain change management processes & cryptographic solutions (PKI, Hashing, Symmetric vs Asymmetric)',
+            'Deception & disruption technologies (Honeypots, Honeynets, Honeyfiles)'
+          ]
+        },
+        {
+          id: 'd2',
+          title: '2.0 Threats, Vulnerabilities & Mitigations',
+          weight: '22%',
+          topics: [
+            'Compare threat actors & motivations (Nation-state, Hacktivist, Insider, Organized Crime)',
+            'Explain threat vectors & attack surfaces (Phishing, Vishing, Smishing, Supply Chain)',
+            'Analyze vulnerability types (Zero-day, SQLi, XSS, CSRF, Race Conditions, Buffer Overflow)',
+            'Indicators of malicious activity (Ransomware, Trojans, Rootkits, Keyloggers, Logic Bombs)'
+          ]
+        },
+        {
+          id: 'd3',
+          title: '3.0 Security Architecture',
+          weight: '18%',
+          topics: [
+            'Security implications of architecture models (Cloud IaaS/PaaS/SaaS, Serverless, IoT, ICS/SCADA)',
+            'Apply security principles to enterprise infrastructure (SD-WAN, SASE, Microsegmentation, Jump Servers)',
+            'Compare data protection strategies (DLP, Tokenization, Masking, Data States)',
+            'Resilience & recovery (RAID, High Availability, RPO/RTO, Cold/Warm/Hot sites)'
+          ]
+        },
+        {
+          id: 'd4',
+          title: '4.0 Security Operations',
+          weight: '28%',
+          topics: [
+            'Apply common security techniques to computing resources (MDM, Hardening, Baselines)',
+            'Asset management & vulnerability management (CVSS, CVE, SIEM, SOAR)',
+            'Identity & Access Management (RBAC, ABAC, MAC, DAC, SAML, OAuth, OIDC, Kerberos)',
+            'Incident Response (PICERL phases, Digital Forensics, Chain of Custody, Order of Volatility)'
+          ]
+        },
+        {
+          id: 'd5',
+          title: '5.0 Security Program Management & Oversight',
+          weight: '20%',
+          topics: [
+            'Effective security governance (Policies, Standards, Procedures, Guidelines)',
+            'Risk management process (Qualitative vs Quantitative, SLE, ALE, ARO, Risk Register)',
+            'Third-party risk assessment (SLA, MOU, MSA, NDA, BPA, Due Diligence)',
+            'Audits, assessments & security awareness training (Pen-testing rules of engagement)'
+          ]
+        }
+      ],
+      '801': [
+        {
+          id: 'd1_8',
+          title: '1.0 General Security Concepts & Cryptographic Foundations',
+          weight: '13%',
+          topics: [
+            'Zero Trust architecture, CIA Triad, AAA, and physical/technical control categories',
+            'Post-quantum cryptography readiness, PKI lifecycle, OCSP stapling, and key escrow',
+            'Deception technologies, threat hunting fundamentals, and change control'
+          ]
+        },
+        {
+          id: 'd2_8',
+          title: '2.0 Threats, Vulnerabilities & AI-Driven Attacks',
+          weight: '23%',
+          topics: [
+            'AI/ML attack vectors: Prompt injection, training data poisoning, model inversion',
+            'Cloud & API vulnerabilities, supply chain compromise, and social engineering',
+            'Malware analysis indicators, fileless attacks, and living-off-the-land (LotL) binaries'
+          ]
+        },
+        {
+          id: 'd3_8',
+          title: '3.0 Secure Cloud, Hybrid & Enterprise Architecture',
+          weight: '19%',
+          topics: [
+            'SASE, SSE, Zero Trust Network Access (ZTNA), and software-defined networking',
+            'Securing AI workloads, container orchestration (Kubernetes), and serverless functions',
+            'Resilience engineering: Immutable backups, RPO/RTO, failover, and data sovereignty'
+          ]
+        },
+        {
+          id: 'd4_8',
+          title: '4.0 Security Operations & Automated Defense',
+          weight: '27%',
+          topics: [
+            'SIEM correlation, SOAR playbooks, XDR telemetry, and AI-assisted triage',
+            'Modern IAM: Phishing-resistant MFA (FIDO2/WebAuthn), OAuth 2.1, OIDC, PAM',
+            'Incident Response lifecycle, cloud forensics, and volatile memory acquisition'
+          ]
+        },
+        {
+          id: 'd5_8',
+          title: '5.0 Governance, Risk, Compliance & AI Oversight',
+          weight: '18%',
+          topics: [
+            'AI governance frameworks, data privacy regulations, and acceptable use policies',
+            'Quantitative risk modeling (SLE/ARO/ALE), vendor risk, and third-party agreements',
+            'Continuous compliance monitoring, internal/external audits, and tabletop exercises'
+          ]
+        }
+      ]
+    };
+
+    const flashcardsData = [
+      { cat: 'vs', term: 'RADIUS vs. TACACS+', def: 'RADIUS uses UDP (1812/1813), encrypts only the password, and combines Authentication & Authorization. TACACS+ uses TCP (49), encrypts the entire packet, and separates AAA.', tip: 'Exam Tip: TACACS+ = Cisco / Device Admin; RADIUS = Wi-Fi / VPN.' },
+      { cat: 'vs', term: 'RPO vs. RTO', def: 'RPO (Recovery Point Objective) = max tolerable data loss measured in time (dictates backup frequency). RTO (Recovery Time Objective) = max tolerable downtime to restore service.', tip: 'Exam Tip: RPO = Past (data); RTO = Future (time to recover).' },
+      { cat: 'crypto', term: 'OCSP Stapling', def: 'Web server periodically queries the CA for a signed timestamped OCSP response and attaches ("staples") it to the TLS handshake, improving privacy and speed.', tip: 'Eliminates client browser needing to contact the CA directly.' },
+      { cat: 'acronyms', term: 'SIEM vs. SOAR', def: 'SIEM aggregates, correlates, and alerts on log data. SOAR automates incident response workflows and playbooks across security tools.', tip: 'SIEM = Visibility & Alerting; SOAR = Automated Action.' },
+      { cat: 'vs', term: 'AH vs. ESP (IPsec)', def: 'Authentication Header (AH, Protocol 51) provides integrity & authentication ONLY. Encapsulating Security Payload (ESP, Protocol 50) provides confidentiality (encryption) + integrity.', tip: 'If the scenario requires confidentiality over VPN, choose ESP.' },
+      { cat: 'acronyms', term: 'STIX vs. TAXII', def: 'STIX is the standardized JSON language/format for describing cyber threat intelligence. TAXII is the transport protocol used to exchange STIX data over HTTPS.', tip: 'STIX = Format (Language); TAXII = Transport (Delivery).' },
+      { cat: 'vs', term: 'DAC vs. MAC vs. RBAC vs. ABAC', def: 'DAC: Owner sets permissions. MAC: OS enforces clearance labels. RBAC: Based on job role. ABAC: Dynamic rules combining user, resource, time, and location attributes.', tip: 'ABAC is the most granular and context-aware model.' },
+      { cat: 'crypto', term: 'Symmetric vs. Asymmetric', def: 'Symmetric (AES, ChaCha20) uses one shared key—fast for bulk data. Asymmetric (RSA, ECC) uses public/private key pairs—solves key distribution & enables digital signatures.', tip: 'Digital Signature = Hash encrypted with SENDER’s Private Key.' }
+    ];
+
+    const portsData = [
+      { port: '20 / 21', proto: 'FTP', trans: 'TCP', note: 'Unencrypted file transfer. Replace with SFTP (22) or FTPS (990).' },
+      { port: '22', proto: 'SSH / SFTP / SCP', trans: 'TCP', note: 'Encrypted remote terminal & secure file transfer.' },
+      { port: '23', proto: 'Telnet', trans: 'TCP', note: 'Cleartext remote CLI. Major audit finding—disable immediately.' },
+      { port: '25', proto: 'SMTP', trans: 'TCP', note: 'Mail routing between servers. Secure with STARTTLS / SMTPS (587/465).' },
+      { port: '53', proto: 'DNS', trans: 'TCP/UDP', note: 'UDP for standard queries; TCP for zone transfers & DNSSEC large packets.' },
+      { port: '67 / 68', proto: 'DHCP', trans: 'UDP', note: 'Dynamic IP assignment. Protect with DHCP Snooping on switches.' },
+      { port: '80 / 443', proto: 'HTTP / HTTPS', trans: 'TCP', note: 'Web traffic. HTTPS uses TLS (443) for confidentiality & integrity.' },
+      { port: '88', proto: 'Kerberos', trans: 'TCP/UDP', note: 'Active Directory ticket-based authentication (TGT). Requires NTP sync.' },
+      { port: '161 / 162', proto: 'SNMP', trans: 'UDP', note: 'Network monitoring (161) & Traps (162). Always use SNMPv3 (authPriv).' },
+      { port: '389 / 636', proto: 'LDAP / LDAPS', trans: 'TCP', note: 'Directory queries. 636 secures LDAP over TLS.' },
+      { port: '445', proto: 'SMB', trans: 'TCP', note: 'Windows file sharing. Common lateral movement & ransomware vector.' },
+      { port: '514', proto: 'Syslog', trans: 'UDP', note: 'Centralized log forwarding (TCP 6514 for Syslog over TLS).' },
+      { port: '1812 / 1813', proto: 'RADIUS', trans: 'UDP', note: 'Network access AAA (802.1X Wi-Fi / VPN authentication).' },
+      { port: '3389', proto: 'RDP', trans: 'TCP/UDP', note: 'Windows Remote Desktop. Never expose directly to the internet; put behind VPN/Jump Host.' }
+    ];
+
+    // --- NAVIGATION ---
+    function switchTab(tabName) {
+      const tabs = ['daily', 'roadmap', 'flashcards', 'ports', 'pbq'];
+      tabs.forEach(t => {
+        const viewEl = document.getElementById(`view-${t}`);
+        const tabEl = document.getElementById(`tab-${t}`);
+        if (viewEl) viewEl.classList.add('hidden');
+        if (tabEl) {
+          tabEl.classList.remove('bg-emerald-500/15', 'text-emerald-300', 'border-emerald-500/30', 'font-semibold', 'shadow-sm');
+          tabEl.classList.add('text-slate-400', 'border-transparent', 'font-medium');
+        }
+      });
+      document.getElementById(`view-${tabName}`).classList.remove('hidden');
+      const activeTab = document.getElementById(`tab-${tabName}`);
+      activeTab.classList.remove('text-slate-400', 'border-transparent', 'font-medium');
+      activeTab.classList.add('bg-emerald-500/15', 'text-emerald-300', 'border-emerald-500/30', 'font-semibold', 'shadow-sm');
+    }
+
+    // --- DOMAIN CHECKLIST DATA ---
+    function setExamVersion(ver) {
+      currentExam = ver;
+      localStorage.setItem('secplus_exam', ver);
+      document.getElementById('btn-701').className = ver === '701'
+        ? 'px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all duration-200 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-sm'
+        : 'px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all duration-200 text-slate-400 hover:text-white';
+      document.getElementById('btn-801').className = ver === '801'
+        ? 'px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all duration-200 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-sm'
+        : 'px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-semibold transition-all duration-200 text-slate-400 hover:text-white';
+
+      document.getElementById('roadmap-title').textContent = ver === '701'
+        ? 'CompTIA Security+ (SY0-701) Exam Objectives'
+        : 'CompTIA Security+ (SY0-801) Updated Objectives';
+      renderDomains();
+    }
+
+    function renderDomains() {
+      const container = document.getElementById('domains-container');
+      const domains = syllabusData[currentExam];
+      container.innerHTML = '';
+
+      let totalTopics = 0;
+      let completedTopics = 0;
+
+      domains.forEach(domain => {
+        let domDone = 0;
+        domain.topics.forEach((_, idx) => {
+          totalTopics++;
+          const key = `${currentExam}_${domain.id}_${idx}`;
+          if (checkedItems[key]) {
+            completedTopics++;
+            domDone++;
+          }
+        });
+
+        const pct = Math.round((domDone / domain.topics.length) * 100);
+        const card = document.createElement('div');
+        card.className = 'glass-panel border border-white/[0.08] rounded-2xl p-5 space-y-4 shadow-lg';
+
+        let topicsHtml = domain.topics.map((topic, idx) => {
+          const key = `${currentExam}_${domain.id}_${idx}`;
+          const isChecked = !!checkedItems[key];
+          return `
+            <label class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.04] cursor-pointer transition border border-transparent hover:border-white/[0.06]">
+              <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleTopic('${key}')" class="mt-0.5 w-4 h-4 rounded border-slate-600 bg-cyber-950 text-emerald-500 focus:ring-emerald-500 focus:ring-offset-0" />
+              <span class="text-sm leading-snug ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'}">${topic}</span>
+            </label>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h3 class="font-bold text-white text-base">${domain.title}</h3>
+              <span class="inline-block mt-1 text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Exam Weight: ${domain.weight}</span>
+            </div>
+            <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-cyber-950 text-slate-300 border border-white/[0.07]">${pct}%</span>
+          </div>
+          <div class="w-full h-1.5 bg-cyber-950 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300" style="width: ${pct}%"></div>
+          </div>
+          <div class="space-y-1 pt-1">${topicsHtml}</div>
+        `;
+        container.appendChild(card);
+      });
+
+      const globalPct = totalTopics ? Math.round((completedTopics / totalTopics) * 100) : 0;
+      document.getElementById('global-progress-bar').style.width = `${globalPct}%`;
+      document.getElementById('global-progress-text').textContent = `${globalPct}%`;
+    }
+
+    function toggleTopic(key) {
+      checkedItems[key] = !checkedItems[key];
+      localStorage.setItem('secplus_checked', JSON.stringify(checkedItems));
+      renderDomains();
+    }
+
+    function openResetModal() {
+      document.getElementById('reset-modal').classList.remove('hidden');
+    }
+
+    function closeResetModal() {
+      document.getElementById('reset-modal').classList.add('hidden');
+    }
+
+    function confirmResetProgress() {
+      checkedItems = {};
+      localStorage.removeItem('secplus_checked');
+      renderDomains();
+      closeResetModal();
+    }
+
+    // --- FLASHCARDS ---
+    let activeCards = [...flashcardsData];
+    let cardIdx = 0;
+    let isFlipped = false;
+
+    function filterCards(cat) {
+      document.querySelectorAll('.card-filter').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = 'card-filter px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500 text-slate-950 transition';
+        } else {
+          btn.className = 'card-filter px-3 py-1.5 rounded-xl text-xs font-medium bg-cyber-850 text-slate-300 hover:text-white border border-white/[0.06] transition';
+        }
+      });
+      activeCards = cat === 'all' ? [...flashcardsData] : flashcardsData.filter(c => c.cat === cat);
+      cardIdx = 0;
+      isFlipped = false;
+      renderCard();
+    }
+
+    function renderCard() {
+      const inner = document.getElementById('flashcard-inner');
+      inner.classList.remove('rotate-y-180');
+      isFlipped = false;
+
+      const card = activeCards[cardIdx];
+      document.getElementById('card-index').textContent = cardIdx + 1;
+      document.getElementById('card-total').textContent = activeCards.length;
+      document.getElementById('card-category-badge').textContent = card.cat.toUpperCase();
+      document.getElementById('card-front-text').textContent = card.term;
+      document.getElementById('card-back-text').textContent = card.def;
+      document.getElementById('card-tip-box').textContent = card.tip;
+    }
+
+    function flipCard() {
+      isFlipped = !isFlipped;
+      document.getElementById('flashcard-inner').classList.toggle('rotate-y-180', isFlipped);
+    }
+
+    function nextCard() {
+      cardIdx = (cardIdx + 1) % activeCards.length;
+      renderCard();
+    }
+
+    function prevCard() {
+      cardIdx = (cardIdx - 1 + activeCards.length) % activeCards.length;
+      renderCard();
+    }
+
+    function shuffleCards() {
+      activeCards.sort(() => Math.random() - 0.5);
+      cardIdx = 0;
+      renderCard();
+    }
+
+    // --- PORTS & PROTOCOLS ---
+    let blindPorts = false;
+
+    function togglePortBlindMode() {
+      blindPorts = !blindPorts;
+      const btn = document.getElementById('toggle-blind-btn');
+      btn.textContent = blindPorts ? 'Drill Mode: Reveal Ports' : 'Drill Mode: Hide Ports';
+      renderPorts();
+    }
+
+    function renderPorts() {
+      const q = document.getElementById('port-search').value.toLowerCase();
+      const tbody = document.getElementById('ports-table-body');
+      tbody.innerHTML = '';
+
+      portsData
+        .filter(p => p.port.toLowerCase().includes(q) || p.proto.toLowerCase().includes(q) || p.note.toLowerCase().includes(q))
+        .forEach(p => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-white/[0.03] transition';
+          const portCell = blindPorts
+            ? `<button onclick="this.textContent='${p.port}'; this.classList.remove('bg-cyber-850','text-amber-300','border-amber-500/30')" class="px-2.5 py-1 rounded-lg bg-cyber-850 text-xs font-mono text-amber-300 border border-amber-500/30 hover:bg-cyber-800 transition">Tap to reveal</button>`
+            : `<span class="font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">${p.port}</span>`;
+
+          tr.innerHTML = `
+            <td class="py-3.5 px-4 whitespace-nowrap">${portCell}</td>
+            <td class="py-3.5 px-4 font-semibold text-white whitespace-nowrap">${p.proto}</td>
+            <td class="py-3.5 px-4 font-mono text-xs text-cyan-300">${p.trans}</td>
+            <td class="py-3.5 px-4 text-slate-300">${p.note}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+    }
+
+    // --- PBQ SIMULATORS ---
+    function gradePBQ1() {
+      const r1 = document.getElementById('acl-1-act').value === 'DENY' &&
+                 document.getElementById('acl-1-src').value === '198.51.100.42' &&
+                 document.getElementById('acl-1-port').value === '22';
+      const r2 = document.getElementById('acl-2-act').value === 'ALLOW' &&
+                 document.getElementById('acl-2-port').value === '22';
+      const r3 = document.getElementById('acl-3-port').value === '443';
+
+      const fb = document.getElementById('pbq1-feedback');
+      if (r1 && r2 && r3) {
+        fb.textContent = '100% Correct! Rogue SSH blocked first (top-down ACL order), Admin SSH allowed, DMZ HTTPS permitted.';
+        fb.className = 'text-sm font-semibold text-emerald-400';
+      } else {
+        fb.textContent = 'Check your rules: Remember firewalls process rules top-down (DENY rogue IP on TCP/22 first, ALLOW Admin TCP/22, ALLOW DMZ TCP/443).';
+        fb.className = 'text-sm font-semibold text-amber-400';
+      }
+    }
+
+    function gradePBQ2() {
+      const m1 = document.getElementById('pbq2-1').value === 'param';
+      const m2 = document.getElementById('pbq2-2').value === 'dai';
+      const m3 = document.getElementById('pbq2-3').value === 'prompt';
+      const fb = document.getElementById('pbq2-feedback');
+      if (m1 && m2 && m3) {
+        fb.textContent = 'All 3 matched accurately! SQLi -> Parameterized queries, ARP Spoofing -> DAI, Prompt Injection -> Guardrails.';
+        fb.className = 'text-sm font-semibold text-emerald-400';
+      } else {
+        fb.textContent = 'One or more pairings are incorrect. Review the attack vector indicators and try again.';
+        fb.className = 'text-sm font-semibold text-amber-400';
+      }
+    }
+
+    // --- ADAPTIVE DAILY TRAINER & DAILY IMPROVEMENT ADVISOR ---
+    const theoryLibrary = {
+      "PKI & Certificates": {
+        title: "PKI, Trust Chains & Revocation",
+        bullets: [
+          "<strong>CSR (Certificate Signing Request):</strong> Generated on the server along with a private key; contains the public key and subject identity sent to a CA.",
+          "<strong>CRL vs. OCSP:</strong> CRL downloads a static list of revoked certs (higher latency). OCSP queries the CA in real time; OCSP Stapling lets the web server cache the signed timestamp.",
+          "<strong>Wildcard vs. SAN:</strong> Wildcard (*.domain.com) covers one subdomain level; Subject Alternative Name (SAN) secures multiple distinct domains on one cert."
+        ]
+      },
+      "IAM & Authentication": {
+        title: "RADIUS, TACACS+, Kerberos & Federation",
+        bullets: [
+          "<strong>RADIUS vs. TACACS+:</strong> RADIUS uses UDP (1812/1813) and encrypts only the password (great for Wi-Fi/VPN). TACACS+ uses TCP (49), encrypts the full packet, and separates AAA (great for router/switch admin).",
+          "<strong>Kerberos (Port 88):</strong> Relies on symmetric encryption, a Key Distribution Center (KDC), Ticket Granting Tickets (TGT), and strict time sync (NTP within 5 mins).",
+          "<strong>SAML vs. OAuth/OIDC:</strong> SAML uses XML assertions for enterprise SSO; OAuth 2.0 handles authorization tokens; OIDC adds an identity layer on top of OAuth."
+        ]
+      },
+      "Attacks & AI Security": {
+        title: "Modern Threats, Web Exploits & AI Risks",
+        bullets: [
+          "<strong>Prompt Injection vs. Data Poisoning:</strong> Prompt injection manipulates model behavior at runtime via crafted inputs; Data poisoning corrupts the training dataset beforehand.",
+          "<strong>XSS vs. CSRF:</strong> XSS executes malicious scripts inside a victim's browser; CSRF tricks an authenticated user's browser into sending an unwanted state-changing request.",
+          "<strong>Downgrade & Replay:</strong> Downgrade forces a connection back to weak crypto (e.g., TLS 1.0); Replay retransmits valid captured packets/tokens."
+        ]
+      },
+      "SecOps & Incident Response": {
+        title: "PICERL Incident Response & Forensics",
+        bullets: [
+          "<strong>PICERL Order:</strong> Preparation &rarr; Identification &rarr; Containment &rarr; Eradication &rarr; Recovery &rarr; Lessons Learned.",
+          "<strong>Order of Volatility:</strong> Always capture most volatile data first: CPU registers/cache &rarr; RAM &rarr; Network state &rarr; Disk/SSD &rarr; Remote logs &rarr; Backups.",
+          "<strong>SOAR vs. SIEM:</strong> SIEM aggregates and correlates logs to generate alerts; SOAR automates incident response playbooks."
+        ]
+      },
+      "GRC & Risk Management": {
+        title: "Risk Metrics, RTO/RPO & Agreements",
+        bullets: [
+          "<strong>SLE, ARO, ALE:</strong> Single Loss Expectancy (Asset Value &times; Exposure Factor). Annualized Loss Expectancy = SLE &times; ARO (Annualized Rate of Occurrence).",
+          "<strong>RPO vs. RTO:</strong> RPO (Recovery Point Objective) = max tolerable data loss in time (dictates backup frequency). RTO (Recovery Time Objective) = max tolerable downtime.",
+          "<strong>MOU vs. SLA vs. BPA:</strong> MOU expresses mutual intent (non-binding); SLA defines uptime/response metrics; BPA governs business partnership terms."
+        ]
+      }
+    };
+
+    const adaptiveQuestions = [
+      {
+        topic: "SecOps & Incident Response",
+        domain: "Domain 4: Security Operations",
+        q: "A SOC analyst confirms an active ransomware binary is executing in memory on a critical database server. What should the analyst do FIRST before powering off the system?",
+        options: [
+          "Unplug the power cable immediately to stop disk encryption",
+          "Isolate the host from the network and capture a volatile RAM dump",
+          "Reimage the server from last night's golden backup",
+          "Delete the malicious executable from the filesystem"
+        ],
+        answer: 1,
+        explanation: "Containment (network isolation) stops lateral spread, and capturing RAM first preserves volatile encryption keys and running processes per the Order of Volatility."
+      },
+      {
+        topic: "IAM & Authentication",
+        domain: "Domain 3: Security Architecture",
+        q: "A network engineer needs centralized AAA for Cisco switches that encrypts the entire payload and separates authentication from command authorization. Which protocol meets this requirement?",
+        options: [
+          "RADIUS over UDP 1812",
+          "TACACS+ over TCP 49",
+          "LDAP over TCP 389",
+          "Kerberos over UDP 88"
+        ],
+        answer: 1,
+        explanation: "TACACS+ uses TCP port 49, encrypts the entire communication packet (not just the password), and decouples Authentication, Authorization, and Accounting."
+      },
+      {
+        topic: "PKI & Certificates",
+        domain: "Domain 1: General Security Concepts",
+        q: "Users report browser warnings because clients cannot reach the CA's revocation server due to firewall restrictions, delaying TLS handshakes. Which solution resolves this without weakening security?",
+        options: [
+          "Disable certificate revocation checking on client browsers",
+          "Enable OCSP Stapling on the web server",
+          "Switch from X.509 certificates to self-signed certificates",
+          "Replace TLS 1.3 with TLS 1.1"
+        ],
+        answer: 1,
+        explanation: "OCSP Stapling allows the web server itself to periodically fetch a signed OCSP response from the CA and 'staple' it to the TLS handshake, eliminating client-to-CA traffic."
+      },
+      {
+        topic: "Attacks & AI Security",
+        domain: "Domain 2: Threats & Vulnerabilities",
+        q: "An internal HR chatbot summarizes uploaded candidate resumes. An applicant hides invisible white text instructing the LLM to ignore all other candidates and recommend hiring them. What attack is this?",
+        options: [
+          "Model Inversion",
+          "Training Data Poisoning",
+          "Indirect Prompt Injection",
+          "Cross-Site Request Forgery"
+        ],
+        answer: 2,
+        explanation: "Indirect prompt injection occurs when untrusted external data ingested by an LLM (such as a webpage, email, or PDF resume) contains hidden instructions that hijack model behavior."
+      },
+      {
+        topic: "GRC & Risk Management",
+        domain: "Domain 5: Program Management",
+        q: "An e-commerce server valued at $200,000 has a 25% Exposure Factor during a severe DDoS event. Historical threat intelligence estimates this event occurs twice per year. What is the ALE?",
+        options: [
+          "$50,000",
+          "$100,000",
+          "$200,000",
+          "$400,000"
+        ],
+        answer: 1,
+        explanation: "SLE = Asset Value ($200,000) × Exposure Factor (0.25) = $50,000. ALE = SLE ($50,000) × ARO (2/year) = $100,000."
+      },
+      {
+        topic: "Attacks & AI Security",
+        domain: "Domain 2: Threats & Vulnerabilities",
+        q: "An employee clicks a link in an email while logged into their corporate banking portal, causing an unauthorized wire transfer to execute using their active session cookie. Which control prevents this?",
+        options: [
+          "Anti-CSRF synchronizer tokens and SameSite=Strict cookies",
+          "Input parameterization / prepared SQL statements",
+          "Implementing DNSSEC on internal resolvers",
+          "Disabling Dynamic Trunking Protocol (DTP)"
+        ],
+        answer: 0,
+        explanation: "This describes Cross-Site Request Forgery (CSRF). Anti-CSRF tokens and SameSite cookie attributes ensure state-changing requests originate from the legitimate site."
+      },
+      {
+        topic: "PKI & Certificates",
+        domain: "Domain 3: Security Architecture",
+        q: "A company wants a single TLS certificate to secure portal.example.com, api.example.com, and billing.partnerdomain.org. Which certificate feature is required?",
+        options: [
+          "Wildcard Certificate",
+          "Subject Alternative Name (SAN)",
+          "Code Signing Certificate",
+          "Key Escrow"
+        ],
+        answer: 1,
+        explanation: "A wildcard (*.example.com) only covers one domain root. Securing multiple distinct domain names requires Subject Alternative Names (SAN)."
+      },
+      {
+        topic: "SecOps & Incident Response",
+        domain: "Domain 4: Security Operations",
+        q: "During a forensic investigation, an analyst collects a disk image and immediately computes a SHA-256 hash, logging it in the evidence tracker. What is the primary purpose of this step?",
+        options: [
+          "To compress the image for faster network transfer",
+          "To prove evidence integrity and support chain of custody",
+          "To decrypt BitLocker-protected partitions",
+          "To scrub personally identifiable information (PII)"
+        ],
+        answer: 1,
+        explanation: "Cryptographic hashing (SHA-256) creates a unique digital fingerprint proving the forensic copy has not been altered since acquisition."
+      }
+    ];
+
+    let topicStats = JSON.parse(localStorage.getItem('secplus_topic_stats') || '{}');
+    let dailyMeta = JSON.parse(localStorage.getItem('secplus_daily_meta') || '{"lastDate":"","streak":0,"countToday":0,"goal":3}');
+    let seenQuestions = JSON.parse(localStorage.getItem('secplus_seen_q') || '[]');
+    let cachedAIQuestions = JSON.parse(localStorage.getItem('secplus_ai_bank') || '[]');
+    let dailyImprovementsCache = JSON.parse(localStorage.getItem('secplus_daily_improvements') || '{"date":"","items":[]}');
+    let currentAdaptiveQ = null;
+    let adaptiveAnswered = false;
+
+    function getTodayStr() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    function updateDailyGoal(val) {
+      dailyMeta.goal = parseInt(val, 10) || 3;
+      localStorage.setItem('secplus_daily_meta', JSON.stringify(dailyMeta));
+      updateDailyHeader();
+    }
+
+    function initAdaptiveTrainer() {
+      Object.keys(theoryLibrary).forEach(t => {
+        if (!topicStats[t]) topicStats[t] = { attempts: 0, correct: 0 };
+      });
+      const today = getTodayStr();
+      if (dailyMeta.lastDate !== today) {
+        dailyMeta.countToday = 0;
+      }
+      if (!dailyMeta.goal) dailyMeta.goal = 3;
+      const goalSelect = document.getElementById('daily-goal-select');
+      if (goalSelect) goalSelect.value = String(dailyMeta.goal);
+
+      updateDailyHeader();
+      updateWeaknessPanel();
+      generateDailyImprovements(false);
+      loadAdaptiveQuestion(false, true);
+    }
+
+    // --- DAILY TASK: USABILITY & LEARNING IMPROVEMENT SUGGESTIONS ---
+    function getFallbackImprovements() {
+      const weakest = getWeakestTopic();
+      const weakName = weakest ? weakest.topic : 'PKI & Certificates';
+      return [
+        {
+          category: 'Learning Retention',
+          title: `Interleaved Active Recall on ${weakName}`,
+          description: `Instead of rereading notes, flip 5 Confused Pairs flashcards and immediately complete 2 targeted scenario drills on ${weakName} to strengthen long-term exam recall.`,
+          actionLabel: 'Open Confused Pairs Deck',
+          actionType: 'flashcards_vs'
+        },
+        {
+          category: 'Usability & Speed',
+          title: 'Blind Port-Number Recall Sprint',
+          description: 'Use Drill Mode in Ports & Protocols to hide port numbers and test rapid recognition under 3 seconds—crucial for eliminating distractors on PBQs.',
+          actionLabel: 'Launch Blind Port Drill',
+          actionType: 'ports_blind'
+        }
+      ];
+    }
+
+    function executeImprovementAction(actionType) {
+      if (actionType === 'flashcards_vs') {
+        switchTab('flashcards');
+        filterCards('vs');
+      } else if (actionType === 'ports_blind') {
+        switchTab('ports');
+        if (!blindPorts) togglePortBlindMode();
+      } else if (actionType === 'pbq') {
+        switchTab('pbq');
+      } else if (actionType === 'roadmap') {
+        switchTab('roadmap');
+      } else {
+        loadAdaptiveQuestion(true);
+      }
+    }
+
+    function renderDailyImprovements(items) {
+      const container = document.getElementById('daily-improvements-list');
+      if (!container) return;
+
+      container.innerHTML = items.map((item, idx) => {
+        const isUsability = item.category.toLowerCase().includes('usability') || item.category.toLowerCase().includes('workflow');
+        const badgeStyle = isUsability
+          ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
+          : 'bg-purple-500/15 text-purple-300 border-purple-500/30';
+
+        const actionBtn = item.actionLabel
+          ? `<button onclick="executeImprovementAction('${item.actionType || 'drill'}')" class="mt-3 inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-400 hover:text-emerald-300 transition">
+              <span>${item.actionLabel}</span>
+              <span>&rarr;</span>
+            </button>`
+          : '';
+
+        return `
+          <div class="bg-cyber-950/85 border border-white/[0.08] hover:border-purple-400/30 rounded-xl p-4 flex flex-col justify-between transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border ${badgeStyle}">${item.category}</span>
+                <span class="text-[10px] font-mono text-slate-500">#${idx + 1}</span>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">${item.title}</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">${item.description}</p>
+            </div>
+            ${actionBtn}
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function generateDailyImprovements(forceRefresh = false) {
+      const today = getTodayStr();
+      const dateBadge = document.getElementById('daily-task-date-badge');
+      if (dateBadge) dateBadge.textContent = `Daily Task • ${today}`;
+
+      if (!forceRefresh && dailyImprovementsCache.date === today && dailyImprovementsCache.items && dailyImprovementsCache.items.length > 0) {
+        renderDailyImprovements(dailyImprovementsCache.items);
+        return;
+      }
+
+      const btn = document.getElementById('refresh-improvements-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="animate-pulse">Analyzing...</span>`;
+      }
+
+      // Immediately render fallback while AI generates fresh suggestions
+      renderDailyImprovements(getFallbackImprovements());
+
+      const weakest = getWeakestTopic();
+      const summaryStats = Object.entries(topicStats)
+        .map(([k, v]) => `${k}: ${v.attempts ? Math.round((v.correct / v.attempts) * 100) + '%' : 'untested'}`)
+        .join(', ');
+
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+      const prompt = `You are a UX & Learning Science Coach for a CompTIA Security+ (SY0-${currentExam}) web & mobile study app.
+User telemetry: Streak=${dailyMeta.streak} days, Today=${dailyMeta.countToday}/${dailyMeta.goal} questions, Topic mastery=[${summaryStats}], Weakest=${weakest ? weakest.topic : 'None yet'}.
+Suggest 2 specific, practical improvements for today:
+1) One "Learning Improvement" (concrete study technique, memory trick, or spaced-repetition tactic tailored to their telemetry).
+2) One "Usability Improvement" (how to optimize their mobile/app workflow, UI habit, or feature usage inside this study hub—such as Blind Port Drill Mode, Confused Pairs flashcards, PBQ labs, or daily goal pacing).
+Return ONLY valid JSON with an "items" array of 2 objects, each having: "category" ("Learning Improvement" or "Usability Improvement"), "title", "description", "actionLabel", and "actionType" (one of: "flashcards_vs", "ports_blind", "pbq", "roadmap", "drill").`;
+
+      try {
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: "OBJECT",
+                properties: {
+                  items: {
+                    type: "ARRAY",
+                    items: {
+                      type: "OBJECT",
+                      properties: {
+                        category: { type: "STRING" },
+                        title: { type: "STRING" },
+                        description: { type: "STRING" },
+                        actionLabel: { type: "STRING" },
+                        actionType: { type: "STRING" }
+                      },
+                      required: ["category", "title", "description", "actionLabel", "actionType"]
+                    }
+                  }
+                },
+                required: ["items"]
+              }
+            }
+          })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const parsed = JSON.parse(data.candidates[0].content.parts[0].text);
+          if (parsed.items && parsed.items.length > 0) {
+            dailyImprovementsCache = { date: today, items: parsed.items };
+            localStorage.setItem('secplus_daily_improvements', JSON.stringify(dailyImprovementsCache));
+            renderDailyImprovements(parsed.items);
+          }
+        }
+      } catch (e) {
+        // Keep fallback rendered
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><span>Suggest New Ideas</span>`;
+        }
+      }
+    }
+
+    function updateDailyHeader() {
+      const today = getTodayStr();
+      const statusEl = document.getElementById('daily-status-text');
+      const streakEl = document.getElementById('daily-streak');
+      const count = dailyMeta.lastDate === today ? (dailyMeta.countToday || 0) : 0;
+      const goal = dailyMeta.goal || 3;
+
+      if (count >= goal) {
+        statusEl.textContent = `${count} / ${goal} Goal Met ✓`;
+        statusEl.className = "text-base sm:text-lg font-bold text-emerald-400 mt-1";
+      } else {
+        statusEl.textContent = `${count} / ${goal} Done Today`;
+        statusEl.className = "text-base sm:text-lg font-bold text-white mt-1";
+      }
+      streakEl.textContent = `${dailyMeta.streak} Day${dailyMeta.streak === 1 ? '' : 's'}`;
+    }
+
+    function getWeakestTopic() {
+      let weakest = null;
+      let lowestRate = 2;
+      Object.entries(topicStats).forEach(([topic, data]) => {
+        if (data.attempts > 0) {
+          const rate = data.correct / data.attempts;
+          if (rate < lowestRate) {
+            lowestRate = rate;
+            weakest = { topic, rate, attempts: data.attempts, correct: data.correct };
+          }
+        }
+      });
+      return weakest;
+    }
+
+    function updateWeaknessPanel() {
+      const weakest = getWeakestTopic();
+      const titleEl = document.getElementById('weakness-topic-title');
+      const subEl = document.getElementById('weakness-topic-sub');
+      const theoryTitleEl = document.getElementById('theory-title');
+      const theoryBodyEl = document.getElementById('theory-body');
+
+      if (weakest && weakest.rate < 1) {
+        const pct = Math.round(weakest.rate * 100);
+        titleEl.textContent = `${weakest.topic} (${pct}% Accuracy)`;
+        subEl.textContent = `AI prioritizing ${weakest.topic} theory & scenario drills until mastery improves.`;
+        const theory = theoryLibrary[weakest.topic];
+        if (theory) {
+          theoryTitleEl.textContent = theory.title;
+          theoryBodyEl.innerHTML = `<ul class="list-disc pl-4 space-y-2.5 text-xs text-slate-300 leading-relaxed">${theory.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
+        }
+      } else if (weakest) {
+        titleEl.textContent = "Strong Across Tested Topics!";
+        subEl.textContent = "Keep generating fresh scenarios across all domains to uncover blind spots.";
+      }
+
+      const listEl = document.getElementById('topic-stats-list');
+      let totalAtt = 0, totalCorr = 0;
+      listEl.innerHTML = Object.entries(topicStats).map(([topic, d]) => {
+        totalAtt += d.attempts;
+        totalCorr += d.correct;
+        const pct = d.attempts === 0 ? 0 : Math.round((d.correct / d.attempts) * 100);
+        const barColor = d.attempts === 0 ? 'bg-slate-700' : (pct < 70 ? 'bg-gradient-to-r from-amber-500 to-orange-400' : 'bg-gradient-to-r from-emerald-500 to-cyan-400');
+        return `
+          <div>
+            <div class="flex justify-between text-slate-300 mb-1">
+              <span class="truncate pr-2 font-medium">${topic}</span>
+              <span class="font-mono text-[11px] ${d.attempts === 0 ? 'text-slate-500' : (pct < 70 ? 'text-amber-400' : 'text-emerald-400')}">${d.attempts === 0 ? 'Untested' : pct + '%'}</span>
+            </div>
+            <div class="w-full h-1.5 bg-cyber-950 rounded-full overflow-hidden border border-white/[0.04]">
+              <div class="${barColor} h-full transition-all duration-500" style="width: ${d.attempts === 0 ? 0 : pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const overallAcc = totalAtt === 0 ? 0 : Math.round((totalCorr / totalAtt) * 100);
+      document.getElementById('q-score').textContent = `Accuracy: ${overallAcc}% (${totalCorr}/${totalAtt})`;
+    }
+
+    async function fetchAIQuestion(targetTopic) {
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+      const topicsList = Object.keys(theoryLibrary);
+      const chosenTopic = targetTopic || topicsList[Math.floor(Math.random() * topicsList.length)];
+      const recentStems = seenQuestions.slice(-8).join(" | ");
+
+      const prompt = `Generate 1 realistic, exam-difficulty CompTIA Security+ (SY0-${currentExam}) scenario multiple-choice question focused specifically on the topic "${chosenTopic}".
+Avoid repeating these recent questions: [${recentStems}].
+Return ONLY valid JSON matching the schema. Make distractors realistic and provide a crisp explanation citing why the correct answer is right and why key distractors fail.`;
+
+      const payload = {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: "OBJECT",
+            properties: {
+              topic: { type: "STRING" },
+              domain: { type: "STRING" },
+              q: { type: "STRING" },
+              options: { type: "ARRAY", items: { type: "STRING" } },
+              answer: { type: "INTEGER" },
+              explanation: { type: "STRING" }
+            },
+            required: ["topic", "domain", "q", "options", "answer", "explanation"]
+          }
+        }
+      };
+
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const data = await res.json();
+          const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (rawText) {
+            const parsed = JSON.parse(rawText);
+            if (parsed.options && parsed.options.length === 4 && typeof parsed.answer === 'number') {
+              parsed.topic = chosenTopic;
+              parsed.isAI = true;
+              cachedAIQuestions.push(parsed);
+              if (cachedAIQuestions.length > 40) cachedAIQuestions.shift();
+              localStorage.setItem('secplus_ai_bank', JSON.stringify(cachedAIQuestions));
+              return parsed;
+            }
+          }
+        } catch (e) {
+          await new Promise(r => setTimeout(r, 800 * Math.pow(2, attempt)));
+        }
+      }
+      return null;
+    }
+
+    async function generateCustomTheory() {
+      const btn = document.getElementById('refresh-theory-btn');
+      const theoryTitleEl = document.getElementById('theory-title');
+      const theoryBodyEl = document.getElementById('theory-body');
+      const weakest = getWeakestTopic();
+      const focusVal = document.getElementById('focus-topic-select')?.value || 'AUTO';
+      const targetTopic = focusVal !== 'AUTO' ? focusVal : (weakest ? weakest.topic : (currentAdaptiveQ?.topic || 'PKI & Certificates'));
+
+      btn.disabled = true;
+      btn.textContent = 'Synthesizing...';
+      theoryTitleEl.textContent = `Generating ${targetTopic} Briefing...`;
+
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+      const prompt = `You are a CompTIA Security+ (SY0-${currentExam}) instructor. Write a concise, high-yield 3-bullet study briefing on "${targetTopic}" highlighting common exam traps, port/protocol distinctions, and decision rules. Return JSON with "title" and "bullets" (array of 3 HTML-formatted strings using <strong> tags for key terms).`;
+
+      try {
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: "OBJECT",
+                properties: {
+                  title: { type: "STRING" },
+                  bullets: { type: "ARRAY", items: { type: "STRING" } }
+                },
+                required: ["title", "bullets"]
+              }
+            }
+          })
+        });
+        const data = await res.json();
+        const parsed = JSON.parse(data.candidates[0].content.parts[0].text);
+        theoryTitleEl.textContent = parsed.title;
+        theoryBodyEl.innerHTML = `<ul class="list-disc pl-4 space-y-2.5 text-xs text-slate-300 leading-relaxed">${parsed.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
+      } catch (e) {
+        const fallback = theoryLibrary[targetTopic];
+        if (fallback) {
+          theoryTitleEl.textContent = fallback.title;
+          theoryBodyEl.innerHTML = `<ul class="list-disc pl-4 space-y-2.5 text-xs text-slate-300 leading-relaxed">${fallback.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
+        }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'AI Deep-Dive';
+      }
+    }
+
+    async function loadAdaptiveQuestion(forceWeakness = false, isInitialDaily = false) {
+      adaptiveAnswered = false;
+      document.getElementById('q-explanation-box').classList.add('hidden');
+      document.getElementById('q-content-area').classList.add('hidden');
+      document.getElementById('q-loading').classList.remove('hidden');
+
+      const weakest = getWeakestTopic();
+      const focusVal = document.getElementById('focus-topic-select')?.value || 'AUTO';
+      const topicsList = Object.keys(theoryLibrary);
+
+      let targetTopic = null;
+      if (focusVal !== 'AUTO') {
+        targetTopic = focusVal;
+      } else if ((forceWeakness || Math.random() < 0.7) && weakest && weakest.rate < 1) {
+        targetTopic = weakest.topic;
+      } else {
+        // Prioritize least-tested topics first
+        const untested = topicsList.filter(t => !topicStats[t] || topicStats[t].attempts === 0);
+        targetTopic = untested.length > 0
+          ? untested[Math.floor(Math.random() * untested.length)]
+          : topicsList[Math.floor(Math.random() * topicsList.length)];
+      }
+
+      document.getElementById('q-loading-text').textContent = `Synthesizing fresh SY0-${currentExam} scenario: ${targetTopic}...`;
+
+      let selectedQ = await fetchAIQuestion(targetTopic);
+
+      // Offline / fallback bank if API is unreachable
+      if (!selectedQ) {
+        const combinedPool = [...cachedAIQuestions, ...adaptiveQuestions];
+        let pool = combinedPool.filter(item => item.topic === targetTopic);
+        if (pool.length === 0) pool = combinedPool;
+        const unseen = pool.filter(item => !seenQuestions.includes(item.q));
+        const finalPool = unseen.length > 0 ? unseen : pool;
+        selectedQ = finalPool[Math.floor(Math.random() * finalPool.length)];
+      }
+
+      currentAdaptiveQ = selectedQ;
+      if (!seenQuestions.includes(selectedQ.q)) {
+        seenQuestions.push(selectedQ.q);
+        if (seenQuestions.length > 50) seenQuestions.shift();
+        localStorage.setItem('secplus_seen_q', JSON.stringify(seenQuestions));
+      }
+
+      document.getElementById('q-loading').classList.add('hidden');
+      document.getElementById('q-content-area').classList.remove('hidden');
+
+      const badgeEl = document.getElementById('q-mode-badge');
+      const today = getTodayStr();
+      const countToday = dailyMeta.lastDate === today ? (dailyMeta.countToday || 0) : 0;
+
+      if (isInitialDaily && countToday < (dailyMeta.goal || 3)) {
+        badgeEl.textContent = `Daily Drill #${countToday + 1}`;
+        badgeEl.className = "text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-cyan-500/15 text-cyan-300 border border-cyan-500/30";
+      } else if (weakest && currentAdaptiveQ.topic === weakest.topic && weakest.rate < 1) {
+        badgeEl.textContent = "Weakness Focus Drill";
+        badgeEl.className = "text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 border border-amber-500/30";
+      } else {
+        badgeEl.textContent = "Adaptive Practice";
+        badgeEl.className = "text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-purple-500/15 text-purple-300 border border-purple-500/30";
+      }
+
+      document.getElementById('q-source-badge').textContent = selectedQ.isAI ? 'AI Synthesized' : 'Core Bank';
+      document.getElementById('q-domain-tag').textContent = currentAdaptiveQ.domain;
+      document.getElementById('q-topic-label').textContent = `Topic: ${currentAdaptiveQ.topic}`;
+      document.getElementById('q-text').textContent = currentAdaptiveQ.q;
+
+      const optContainer = document.getElementById('q-options');
+      optContainer.innerHTML = '';
+      currentAdaptiveQ.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "group w-full text-left p-4 rounded-xl bg-cyber-950/80 hover:bg-cyber-850 border border-white/[0.08] hover:border-emerald-500/40 text-sm text-slate-200 transition-all duration-150 flex items-start gap-3.5 active:scale-[0.99]";
+        btn.innerHTML = `<span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-cyber-900 group-hover:bg-emerald-500/20 text-slate-400 group-hover:text-emerald-300 border border-white/[0.08] transition">${String.fromCharCode(65 + idx)}</span><span class="pt-0.5 leading-snug">${opt}</span>`;
+        btn.onclick = () => selectAdaptiveAnswer(idx, btn);
+        optContainer.appendChild(btn);
+      });
+    }
+
+    function selectAdaptiveAnswer(selectedIdx, btnEl) {
+      if (adaptiveAnswered) return;
+      adaptiveAnswered = true;
+
+      const isCorrect = selectedIdx === currentAdaptiveQ.answer;
+      const buttons = document.getElementById('q-options').querySelectorAll('button');
+
+      buttons.forEach((b, i) => {
+        b.disabled = true;
+        b.classList.remove('hover:bg-cyber-850', 'hover:border-emerald-500/40');
+        if (i === currentAdaptiveQ.answer) {
+          b.classList.remove('bg-cyber-950/80', 'border-white/[0.08]');
+          b.classList.add('bg-emerald-500/15', 'border-emerald-500/60', 'text-emerald-100', 'shadow-glow-emerald');
+        } else if (i === selectedIdx && !isCorrect) {
+          b.classList.remove('bg-cyber-950/80', 'border-white/[0.08]');
+          b.classList.add('bg-red-500/15', 'border-red-500/60', 'text-red-100');
+        } else {
+          b.classList.add('opacity-50');
+        }
+      });
+
+      const t = currentAdaptiveQ.topic;
+      if (!topicStats[t]) topicStats[t] = { attempts: 0, correct: 0 };
+      topicStats[t].attempts++;
+      if (isCorrect) topicStats[t].correct++;
+      localStorage.setItem('secplus_topic_stats', JSON.stringify(topicStats));
+
+      const today = getTodayStr();
+      if (dailyMeta.lastDate !== today) {
+        dailyMeta.streak = (dailyMeta.streak || 0) + 1;
+        dailyMeta.lastDate = today;
+        dailyMeta.countToday = 1;
+      } else {
+        dailyMeta.countToday = (dailyMeta.countToday || 0) + 1;
+      }
+      localStorage.setItem('secplus_daily_meta', JSON.stringify(dailyMeta));
+      updateDailyHeader();
+
+      if (!isCorrect && theoryLibrary[t]) {
+        const theory = theoryLibrary[t];
+        document.getElementById('theory-title').textContent = `Review Needed: ${theory.title}`;
+        document.getElementById('theory-body').innerHTML = `<ul class="list-disc pl-4 space-y-2.5 text-xs text-slate-300 leading-relaxed">${theory.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
+      }
+
+      updateWeaknessPanel();
+
+      const expBox = document.getElementById('q-explanation-box');
+      const resHeader = document.getElementById('q-result-header');
+      expBox.classList.remove('hidden');
+      if (isCorrect) {
+        resHeader.textContent = "✓ Correct — Well Done!";
+        resHeader.className = "font-bold text-sm mb-1.5 text-emerald-400";
+      } else {
+        resHeader.textContent = `✕ Incorrect — Weak Spot Logged (${t})`;
+        resHeader.className = "font-bold text-sm mb-1.5 text-amber-400";
+      }
+      document.getElementById('q-explanation-text').textContent = currentAdaptiveQ.explanation;
+    }
+
+    // --- INIT ---
+    setExamVersion(currentExam);
+    initAdaptiveTrainer();
+    renderCard();
+    renderPorts();
+  </script>
+</body>
+</html>
